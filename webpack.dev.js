@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = merge(common, {
 	mode: 'development',
@@ -18,6 +19,7 @@ module.exports = merge(common, {
 		},
 	},
 	plugins: [
+		new ReactRefreshWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: path.resolve(__dirname, './src/index.html'),			
