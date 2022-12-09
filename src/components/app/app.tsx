@@ -8,9 +8,9 @@ function App() {
   return (
     <>
       <h1>react typescript template</h1>
-      <img src={image} width='300' height='200'/>
+      <img src={image} width='300' height='200' />
       <img src={logo} width='100' />
-      <ReactLogoComponent width={"50"} height={"50"} />
+      <ReactLogoComponent width={'50'} height={'50'} />
     </>
   );
 }
