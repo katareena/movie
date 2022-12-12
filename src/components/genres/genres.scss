@@ -1,0 +1,43 @@
+@use '../../global-styles/variables.scss' as v;
+@use '../../global-styles/mixin.scss' as m;
+
+.genres {
+  margin-right: 40px;
+}
+
+.genres__list {
+  @include m.list-reset;
+  display: flex;
+  height: 102.5%;
+}
+
+.genres__item {
+  &:not(:last-of-type) {
+    margin-right: 30px;
+  }
+
+  &.genres__item--active {
+    border-bottom: solid 2px v.$accent;
+  }
+}
+
+.genres__link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$text-accent;
+  text-transform: uppercase;
+
+  @media screen and (min-width: v.$width-768) {
+    cursor: pointer;
+
+    &:hover {
+      transition: v.$transition;
+      color: v.$gray-light;
+    }
+  }
+}

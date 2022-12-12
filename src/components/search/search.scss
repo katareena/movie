@@ -1,0 +1,79 @@
+@use '../../global-styles/variables.scss' as v;
+@use '../../global-styles/mixin.scss' as m;
+
+.search {
+  width: 100%;
+}
+
+.search__inner {
+  @include m.padding;
+  padding: 17px 120px 151px 120px;
+  @include m.wrap;
+}
+
+.search__title {
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 49px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  margin-bottom: 38px;
+}
+
+.search__form {
+  display: flex;
+  width: 100%;
+  gap: 14px;
+}
+
+.search__feild {
+  flex-grow: 1;
+}
+
+.search__feild input {
+  width: 100%;
+  height: 57px;
+
+  background: rgba(50, 50, 50, 0.8);
+  mix-blend-mode: normal;
+  opacity: 0.7;
+  border-radius: 4px;
+  padding: 16px 20px 16px 20px;
+
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: v.$text-accent;
+
+  &::placeholder {
+    color: v.$text-minor-03;
+  }
+
+  @media screen and (min-width: v.$width-768) {
+    &:hover,
+    &:focus {
+      transition: v.$transition;
+      box-shadow: v.$shadow-box1;
+    }
+  }
+}
+
+.search__button {
+  background-color: v.$accent;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: v.$text-accent;
+  min-width: 233px;
+  padding: 18px 35px 15px 35px;
+  border-radius: 4px;
+
+  @media screen and (min-width: v.$width-768) {
+    &:hover,
+    &:focus {
+      box-shadow: v.$shadow-box2;
+    }
+  }
+}

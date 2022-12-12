@@ -1,0 +1,40 @@
+@use '../../global-styles/variables.scss' as v;
+
+.catalog__nav {
+  display: flex;
+  justify-content: space-between;
+  height: 62px;
+  border-bottom: solid 2px v.$gray-medium;
+  box-shadow: 0 4px 3px -3px v.$black;
+}
+
+.catalog__result-text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: v.$text-accent;
+  padding: 24px 0 28px 0;
+
+  & span {
+    font-weight: 600;
+  }
+}
+
+.catalog__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(205px, 1fr));
+  column-gap: 56px;
+  row-gap: 32px;
+
+  @media screen and (max-width: v.$width-1024) {
+    grid-template-columns: repeat(2, minmax(205px, 1fr));
+  }
+
+  @media screen and (max-width: v.$width-768) {
+    grid-template-columns: repeat(2, minmax(205px, 1fr));
+  }
+
+  @media screen and (max-width: v.$width-576) {
+    grid-template-columns: minmax(205px, 1fr);
+  }
+}

@@ -1,0 +1,36 @@
+@use '../../global-styles/variables.scss' as v;
+
+.sorting__form {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+}
+
+.sorting__form-caption {
+  text-transform: uppercase;
+  margin-right: 31px;
+}
+
+.sorting__form-type {
+  font-weight: 500;
+  text-transform: uppercase;
+  color: v.$text-accent;
+
+  @media screen and (min-width: v.$width-768) {
+    cursor: pointer;
+
+    &:hover {
+      transition: v.$transition;
+      color: v.$accent;
+    }
+  }
+}
+
+.sorting__form-arrow {
+  margin-left: 7px;
+
+  & svg {
+    margin-bottom: 1px;
+  }
+}

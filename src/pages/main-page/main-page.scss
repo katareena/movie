@@ -1,0 +1,17 @@
+@use '../../global-styles/mixin.scss' as m;
+@use '../../global-styles/variables.scss' as v;
+
+.page__top {
+  background: url('../../assets/images/bg-header.jpg') center/cover no-repeat;
+  margin-bottom: 10px;
+}
+
+.page__medium {
+  background-color: v.$gray-dark;
+  padding-bottom: 58px;
+}
+
+.page__medium-wrap {
+  @include m.padding;
+  @include m.wrap;
+}
