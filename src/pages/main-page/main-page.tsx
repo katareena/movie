@@ -1,5 +1,4 @@
 import React from 'react';
-import './main-page.scss';
 import Header from '../../components/header/header';
 import Search from '../../components/search/search';
 import Card from '../../components/card/card';

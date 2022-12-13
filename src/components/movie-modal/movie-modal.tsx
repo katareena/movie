@@ -114,7 +114,6 @@ export default function MovieModal(): JSX.Element {
                       type='checkbox'
                       name='genre'
                       id='genre-1'
-                      checked
                     />
                     <label
                       className='field__label field__label--checkbox'

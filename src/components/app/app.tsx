@@ -9,7 +9,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.Root} element={<MainPage />} />
-        <Route path={AppRoute.Root} element={<SigninPage />} />
+        <Route path={AppRoute.Signin} element={<SigninPage />} />
       </Routes>
     </BrowserRouter>
   );
