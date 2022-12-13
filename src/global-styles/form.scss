@@ -1,5 +1,5 @@
-@use '../../global-styles/variables.scss' as v;
-@use '../../global-styles/mixin.scss' as m;
+@use './mixin.scss' as m;
+@use './variables.scss' as v;
 
 .form {
   position: relative;

@@ -1,5 +1,4 @@
 import React from 'react';
-import './movie-modal.scss';
 import ArrowSvgComponent from '../../assets/images/arrow-dropdown-icon.svg';
 import CalendarSvgComponent from '../../assets/images/calendar-icon.svg';
 
