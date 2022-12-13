@@ -1,0 +1,16 @@
+@use './mixin.scss' as m;
+
+.modal {
+  @include m.modal;
+}
+
+.modal--show {
+  @include m.show-modal;
+}
+
+.modal__wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
