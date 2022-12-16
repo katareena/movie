@@ -5,6 +5,10 @@
 
   display: flex;
   align-items: center;
+
+  position: relative;
+
+  // background-color: yellowgreen;
 }
 
 .sorting__form-caption {
@@ -13,6 +17,7 @@
 }
 
 .sorting__form-type {
+  font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
   color: v.$text-accent;

@@ -1,6 +1,7 @@
 import React from 'react';
 import './sorting.scss';
 import ArrowSvgComponent from '../../assets/images/arrow-dropdown-icon.svg';
+import { SortItems } from '../../constants/constants';
 
 export default function Sorting(): JSX.Element {
   return (
@@ -9,19 +10,22 @@ export default function Sorting(): JSX.Element {
         <span className='sorting__form-caption'>Sort by</span>
 
         <button className='sorting__form-type' type='button'>
-          Popular
+          release date
           <span className='sorting__form-arrow'>
             <ArrowSvgComponent />
           </span>
         </button>
 
-        <ul className='visually-hidden sorting__options sorting__options--custom sorting__options--opened'>
-          <li className='sorting__option sorting__option--active'>
-            Top rated first
-          </li>
-          <li className='sorting__option'>release date</li>
-          <li className='sorting__option'>durations</li>
-        </ul>
+        <div className='dropdown dropdown--opened'>
+          <ul className='dropdown__options'>
+            {SortItems.map((item: string) => (
+              // dropdown__option--active
+              <li className='dropdown__option' key={item}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
       </form>
     </div>
   );
