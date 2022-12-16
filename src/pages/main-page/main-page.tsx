@@ -6,8 +6,13 @@ import Catalog from '../../components/catalog/catalog';
 import Footer from '../../components/footer/footer';
 import MovieModal from '../../components/movie-modal/movie-modal';
 import NotifyModal from '../../components/notify-modal/notify-modal';
+import { MovieType } from '../../types/movie-type';
 
-export default function MainPage(): JSX.Element {
+type MainPageProps = {
+  movies: MovieType[];
+};
+
+export default function MainPage({ movies }: MainPageProps): JSX.Element {
   return (
     <>
       <div className='page__top'>
@@ -18,7 +23,7 @@ export default function MainPage(): JSX.Element {
 
       <main className='page__medium'>
         <div className='page__medium-wrap'>
-          <Catalog />
+          <Catalog movies={movies} />
         </div>
       </main>
 

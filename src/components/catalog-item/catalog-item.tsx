@@ -2,25 +2,31 @@ import React from 'react';
 import './catalog-item.scss';
 import { Link } from 'react-router-dom';
 import Edit from '../edit/edit';
+import { MovieType } from '../../types/movie-type';
 
-export default function CatalogItem(): JSX.Element {
+type CatalogItemProps = {
+  movie: MovieType;
+};
+
+export default function CatalogItem({ movie }: CatalogItemProps): JSX.Element {
+  const { id, name, posterImage, genre, released } = movie;
   return (
     <article className='catalog__card'>
       <Link
         className='catalog__card-poster'
-        to={`/movies/someId`}
+        to={`/movies/${id}`}
         aria-label='go to the movie card'
       >
-        <img src='#' alt='poster of movie' />
+        <img src={posterImage} alt='poster of movie' />
       </Link>
       <div className='catalog__card-info'>
         <div className='catalog__card-box'>
-          <h3 className='catalog__card-title'>Pulp Fiction</h3>
+          <h3 className='catalog__card-title'>{name}</h3>
           <div className='catalog__card-release'>
-            <span>1994</span>
+            <span>{released}</span>
           </div>
         </div>
-        <p className='catalog__card-genres'>Action & Adventure</p>
+        <p className='catalog__card-genres'>{genre}</p>
       </div>
 
       <Edit />

@@ -3,8 +3,15 @@ import './catalog.scss';
 import Genres from '../genres/genres';
 import Sorting from '../sorting/sorting';
 import CatalogItem from '../catalog-item/catalog-item';
+import { MovieType } from '../../types/movie-type';
 
-export default function Catalog(): JSX.Element {
+type CatalogProps = {
+  movies: MovieType[];
+};
+
+export default function Catalog({ movies }: CatalogProps): JSX.Element {
+  const numberMovies = movies.length;
+
   return (
     <section className='catalog'>
       <h2 className='visually-hidden'>Catalog</h2>
@@ -15,15 +22,13 @@ export default function Catalog(): JSX.Element {
       </div>
 
       <p className='catalog__result-text'>
-        <span>39</span> movies found
+        <span>{numberMovies}</span> movies found
       </p>
 
       <div className='catalog__list'>
-        <CatalogItem />
-        <CatalogItem />
-        <CatalogItem />
-        <CatalogItem />
-        <CatalogItem />
+        {movies.map((movie: MovieType) => (
+          <CatalogItem movie={movie} key={movie.id} />
+        ))}
       </div>
     </section>
   );
