@@ -1,0 +1,273 @@
+@use './variables.scss' as v;
+
+@mixin padding {
+  padding-left: 60px;
+  padding-right: 60px;
+
+  @media (max-width: v.$width-768) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (max-width: v.$width-576) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@mixin wrap {
+  width: 100%;
+  min-width: 320px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin fields {
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 16px 19px;
+  background-color: v.$fields-bg;
+  opacity: 0.8;
+  border-radius: 4px;
+
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: v.$white;
+
+  &::placeholder {
+    opacity: 0.3;
+  }
+}
+
+@mixin modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+
+  background: rgba(black, 0.75);
+}
+
+@mixin show-modal {
+  visibility: visible;
+  opacity: 0.99;
+}
+
+@mixin button-1 {
+  display: inline-block;
+  min-height: 55px;
+
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.14px;
+  color: v.$white;
+
+  padding-left: 30px;
+  padding-right: 30px;
+
+  background-color: green;
+  border: none;
+  border-radius: 100px;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: v.$accent-1;
+  }
+
+  &:active {
+    background-color: v.$accent-4;
+  }
+}
+
+@mixin form-button {
+  min-height: 57px;
+  padding: 16px 9%;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  @media screen and (min-width: v.$width-768) {
+    &:hover {
+      box-shadow: v.$shadow-box1;
+    }
+  }
+}
+
+@mixin button-hover {
+  box-shadow: 0 14px 20px rgba(v.$decor-2, 0.25),
+    0 10px 10px rgba(v.$decor-2, 0.22);
+}
+
+@mixin button-close-s {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  transition: all 0.2s ease;
+  outline: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 14px;
+    height: 15px;
+    width: 1px;
+    background-color: v.$white;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 14px;
+    height: 15px;
+    width: 1px;
+    background-color: v.$white;
+    transform: rotate(-45deg);
+  }
+
+  &:hover::after,
+  &:focus::after,
+  &:hover::before,
+  &:focus::before {
+    background: v.$accent;
+  }
+
+  &:active::after,
+  &:active::before {
+    opacity: 0.6;
+  }
+}
+
+@mixin button-close-l {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 21px;
+    height: 25px;
+    width: 1px;
+    background-color: v.$white;
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 21px;
+    height: 25px;
+    width: 1px;
+    background-color: v.$white;
+    transform: rotate(-45deg);
+    transition: all 0.2s ease;
+  }
+
+  &:hover::after,
+  &:focus::after,
+  &:hover::before,
+  &:focus::before {
+    background: v.$accent;
+    transition: all 0.2s ease;
+  }
+
+  &:active::after,
+  &:active::before {
+    opacity: 0.6;
+  }
+}
+
+@mixin plus {
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  transition: v.$transition;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    height: 11px;
+    width: 2px;
+    background: v.$accent;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    height: 11px;
+    width: 2px;
+    background: v.$accent;
+    transform: rotate(90deg);
+  }
+}
+
+@mixin success-icon {
+  width: 66px;
+  height: 66px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 66px;
+    height: 66px;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    border: none;
+    background-color: v.$accent;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 29px;
+    top: 14px;
+    left: 24px;
+    border-right: solid 3.5px v.$white;
+    border-bottom: solid 3.5px v.$white;
+    transform: rotate(45deg);
+  }
+}
