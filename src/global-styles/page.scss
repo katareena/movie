@@ -1,6 +1,12 @@
 @use './variables.scss' as v;
 @use './mixin.scss' as m;
 
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .page__top {
   background: url('../assets/images/bg-header.jpg') center/cover no-repeat;
   margin-bottom: 10px;
@@ -9,6 +15,12 @@
 .page__medium {
   background-color: v.$gray-dark;
   padding-bottom: 58px;
+  flex-grow: 1;
+}
+
+.page__error {
+  padding: 20px 0;
+  text-align: center;
 }
 
 .page__medium-wrap {
@@ -17,7 +29,8 @@
 }
 
 .page__sign-wrap {
-  @include m.wrap;
+  // @include m.wrap;
+  width: 100%;
   height: 100vh;
   background: url('../assets/images/bg-login.jpg') center/cover no-repeat;
   position: relative;

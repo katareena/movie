@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/header/header';
 import Search from '../../components/search/search';
 import Card from '../../components/card/card';
+import ErrorBoundary from '../../components/error-boundary/error-boundary';
 import Catalog from '../../components/catalog/catalog';
 import Footer from '../../components/footer/footer';
 import MovieModal from '../../components/movie-modal/movie-modal';
@@ -14,7 +15,7 @@ type MainPageProps = {
 
 export default function MainPage({ movies }: MainPageProps): JSX.Element {
   return (
-    <>
+    <div className='page'>
       <div className='page__top'>
         <Header />
         <Search />
@@ -23,13 +24,15 @@ export default function MainPage({ movies }: MainPageProps): JSX.Element {
 
       <main className='page__medium'>
         <div className='page__medium-wrap'>
-          <Catalog movies={movies} />
+          <ErrorBoundary movies={movies}>
+            <Catalog movies={movies} />
+          </ErrorBoundary>
         </div>
       </main>
 
       <Footer />
       <MovieModal />
       <NotifyModal />
-    </>
+    </div>
   );
 }

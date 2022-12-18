@@ -19,7 +19,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:eslint-comments/recommended',
     'prettier',
-    'plugin:prettier/recommended',
+    // 'plugin:prettier/recommended',
   ],
   rules: {
     'no-unused-vars': 'off',
