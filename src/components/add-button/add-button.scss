@@ -1,7 +1,7 @@
 @use '../../global-styles/mixin.scss' as m;
 @use '../../global-styles/variables.scss' as v;
 
-.add__button {
+.add {
   min-width: 177px;
   min-height: 46px;
   background: v.$gray-bg;
