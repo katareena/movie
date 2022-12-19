@@ -1,7 +1,7 @@
 import React from 'react';
 import './card.scss';
 
-export default function Card(): JSX.Element {
+const Card = (): JSX.Element => {
   return (
     <section className='card visually-hidden'>
       <div className='card__inner'>
@@ -35,4 +35,6 @@ export default function Card(): JSX.Element {
       </div>
     </section>
   );
-}
+};
+
+export default Card;

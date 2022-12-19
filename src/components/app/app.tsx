@@ -9,7 +9,7 @@ type AppProps = {
   movies: MovieType[];
 };
 
-export default function App({ movies }: AppProps): JSX.Element {
+const App = ({ movies }: AppProps): JSX.Element => {
   return (
     <BrowserRouter>
       <Routes>
@@ -18,4 +18,6 @@ export default function App({ movies }: AppProps): JSX.Element {
       </Routes>
     </BrowserRouter>
   );
-}
+};
+
+export default App;

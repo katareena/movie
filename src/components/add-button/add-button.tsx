@@ -1,7 +1,7 @@
 import React from 'react';
 import './add-button.scss';
 
-export default function AddButton(): JSX.Element {
+const AddButton = (): JSX.Element => {
   return (
     <div className='add'>
       <button className='add__button' type='button'>
@@ -10,4 +10,6 @@ export default function AddButton(): JSX.Element {
       </button>
     </div>
   );
-}
+};
+
+export default AddButton;

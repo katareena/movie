@@ -1,7 +1,7 @@
 import React from 'react';
 import './search.scss';
 
-export default function SigninPage(): JSX.Element {
+const Search = (): JSX.Element => {
   return (
     <section className='search'>
       <div className='search__inner'>
@@ -26,4 +26,6 @@ export default function SigninPage(): JSX.Element {
       </div>
     </section>
   );
-}
+};
+
+export default Search;

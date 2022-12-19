@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AppRoute } from '../../constants/constants';
 import logoSvg from '../../assets/images/logo.svg?url';
 
-export default function Logo(): JSX.Element {
+const Logo = (): JSX.Element => {
   return (
     <div className='logo'>
       <Link to={AppRoute.Root}>
@@ -12,4 +12,6 @@ export default function Logo(): JSX.Element {
       </Link>
     </div>
   );
-}
+};
+
+export default Logo;

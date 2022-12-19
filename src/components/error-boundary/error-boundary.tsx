@@ -6,10 +6,10 @@ type ErrorBoundaryProps = {
   movies: MovieType[];
 };
 
-export default function ErrorBoundary({
+const ErrorBoundary = ({
   children,
   movies,
-}: ErrorBoundaryProps): JSX.Element {
+}: ErrorBoundaryProps): JSX.Element => {
   const isEverythingOK: boolean = movies.length > 0;
 
   return isEverythingOK ? (
@@ -19,4 +19,6 @@ export default function ErrorBoundary({
       Oops, something went wrong... We are doing our best to fix the issue!
     </p>
   );
-}
+};
+
+export default ErrorBoundary;

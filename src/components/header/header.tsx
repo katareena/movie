@@ -6,7 +6,7 @@ import AddButton from '../add-button/add-button';
 import FindButton from '../find-button/find-button';
 import { AppRoute } from '../../constants/constants';
 
-export default function Header(): JSX.Element {
+const Header = (): JSX.Element => {
   return (
     <header className='header'>
       <div className='header__wrap'>
@@ -26,4 +26,6 @@ export default function Header(): JSX.Element {
       </div>
     </header>
   );
-}
+};
+
+export default Header;

@@ -5,7 +5,7 @@ import Logo from '../logo/logo';
 import { AppRoute } from '../../constants/constants';
 import cn from 'classnames';
 
-export default function Footer(): JSX.Element {
+const Footer = (): JSX.Element => {
   const { pathname } = useLocation();
 
   return (
@@ -19,4 +19,6 @@ export default function Footer(): JSX.Element {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

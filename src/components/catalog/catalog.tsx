@@ -9,7 +9,7 @@ type CatalogProps = {
   movies: MovieType[];
 };
 
-export default function Catalog({ movies }: CatalogProps): JSX.Element {
+const Catalog = ({ movies }: CatalogProps): JSX.Element => {
   const numberMovies = movies.length;
 
   return (
@@ -32,4 +32,6 @@ export default function Catalog({ movies }: CatalogProps): JSX.Element {
       </div>
     </section>
   );
-}
+};
+
+export default Catalog;

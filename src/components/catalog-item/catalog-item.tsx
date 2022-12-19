@@ -8,8 +8,9 @@ type CatalogItemProps = {
   movie: MovieType;
 };
 
-export default function CatalogItem({ movie }: CatalogItemProps): JSX.Element {
+const CatalogItem = ({ movie }: CatalogItemProps): JSX.Element => {
   const { id, name, posterImage, genre, released } = movie;
+
   return (
     <article className='catalog__card'>
       <Link
@@ -32,4 +33,6 @@ export default function CatalogItem({ movie }: CatalogItemProps): JSX.Element {
       <Edit />
     </article>
   );
-}
+};
+
+export default CatalogItem;

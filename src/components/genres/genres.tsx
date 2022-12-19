@@ -3,7 +3,7 @@ import './genres.scss';
 import { Link } from 'react-router-dom';
 import { MovieGenres } from '../../constants/constants';
 
-export default function Genres(): JSX.Element {
+const Genres = (): JSX.Element => {
   return (
     <div className='genres'>
       <ul className='genres__list'>
@@ -17,4 +17,6 @@ export default function Genres(): JSX.Element {
       </ul>
     </div>
   );
-}
+};
+
+export default Genres;

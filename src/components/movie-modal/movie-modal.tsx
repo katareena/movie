@@ -2,7 +2,7 @@ import React from 'react';
 import ArrowSvgComponent from '../../assets/images/arrow-dropdown-icon.svg';
 import CalendarSvgComponent from '../../assets/images/calendar-icon.svg';
 
-export default function MovieModal(): JSX.Element {
+const MovieModal = (): JSX.Element => {
   return (
     <div className='modal'>
       <section className='modal__wrap form form--movie'>
@@ -210,4 +210,6 @@ export default function MovieModal(): JSX.Element {
       </section>
     </div>
   );
-}
+};
+
+export default MovieModal;

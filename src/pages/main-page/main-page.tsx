@@ -13,7 +13,7 @@ type MainPageProps = {
   movies: MovieType[];
 };
 
-export default function MainPage({ movies }: MainPageProps): JSX.Element {
+const MainPage = ({ movies }: MainPageProps): JSX.Element => {
   return (
     <div className='page'>
       <div className='page__top'>
@@ -35,4 +35,6 @@ export default function MainPage({ movies }: MainPageProps): JSX.Element {
       <NotifyModal />
     </div>
   );
-}
+};
+
+export default MainPage;

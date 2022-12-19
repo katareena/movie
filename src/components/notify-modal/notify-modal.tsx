@@ -1,7 +1,7 @@
 import React from 'react';
 import './notify-modal.scss';
 
-export default function NotifyModal(): JSX.Element {
+const NotifyModal = (): JSX.Element => {
   return (
     <div className='modal'>
       <div className='modal__wrap notify'>
@@ -18,4 +18,6 @@ export default function NotifyModal(): JSX.Element {
       </div>
     </div>
   );
-}
+};
+
+export default NotifyModal;

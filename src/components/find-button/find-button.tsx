@@ -2,7 +2,7 @@ import React from 'react';
 import './find-button.scss';
 import FindSvgComponent from '../../assets/images/loupe-icon.svg';
 
-export default function FindButton(): JSX.Element {
+const FindButton = (): JSX.Element => {
   return (
     <div className='find visually-hidden'>
       <button
@@ -16,4 +16,6 @@ export default function FindButton(): JSX.Element {
       </button>
     </div>
   );
-}
+};
+
+export default FindButton;

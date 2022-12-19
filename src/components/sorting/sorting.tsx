@@ -3,7 +3,7 @@ import './sorting.scss';
 import ArrowSvgComponent from '../../assets/images/arrow-dropdown-icon.svg';
 import { SortItems } from '../../constants/constants';
 
-export default function Sorting(): JSX.Element {
+const Sorting = (): JSX.Element => {
   return (
     <div className='sorting'>
       <form className='sorting__form' action='#' method='get'>
@@ -28,4 +28,6 @@ export default function Sorting(): JSX.Element {
       </form>
     </div>
   );
-}
+};
+
+export default Sorting;

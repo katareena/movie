@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../../components/footer/footer';
 
-export default function SigninPage(): JSX.Element {
+const SigninPage = (): JSX.Element => {
   return (
     <div className='page__sign'>
       <div className='page__sign-wrap'>
@@ -62,4 +62,6 @@ export default function SigninPage(): JSX.Element {
       </div>
     </div>
   );
-}
+};
+
+export default SigninPage;
