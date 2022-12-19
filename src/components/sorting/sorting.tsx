@@ -19,7 +19,6 @@ export default function Sorting(): JSX.Element {
         <div className='dropdown dropdown--opened'>
           <ul className='dropdown__options'>
             {SortItems.map((item: string) => (
-              // dropdown__option--active
               <li className='dropdown__option' key={item}>
                 {item}
               </li>

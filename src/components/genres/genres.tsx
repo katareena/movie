@@ -8,7 +8,6 @@ export default function Genres(): JSX.Element {
     <div className='genres'>
       <ul className='genres__list'>
         {MovieGenres.map((item: string) => (
-          // genres__item--active
           <li className='genres__item' key={item}>
             <Link to='#' className='genres__link'>
               {item}

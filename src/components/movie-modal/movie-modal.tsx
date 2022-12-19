@@ -4,18 +4,13 @@ import CalendarSvgComponent from '../../assets/images/calendar-icon.svg';
 
 export default function MovieModal(): JSX.Element {
   return (
-    // modal--show
     <div className='modal'>
       <section className='modal__wrap form form--movie'>
         <div className='form__title'>
           <h2>ADD MOVIE</h2>
         </div>
 
-        <form
-          className='form__form'
-          action='https://echo.htmlacademy.ru'
-          method='post'
-        >
+        <form className='form__form' action='#' method='post'>
           <div className='form__grid'>
             <div className='field'>
               <label className='field__label' htmlFor='movie-title'>
@@ -104,7 +99,6 @@ export default function MovieModal(): JSX.Element {
                 Select at least one genre to proceed
               </p>
 
-              {/* <!-- dropdown--opened --> */}
               <div className='dropdown'>
                 <ul className='dropdown__options'>
                   <li className='field'>

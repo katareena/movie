@@ -11,11 +11,7 @@ export default function SigninPage(): JSX.Element {
               <h2>log in</h2>
             </div>
 
-            <form
-              className='form__form'
-              action='https://echo.htmlacademy.ru'
-              method='post'
-            >
+            <form className='form__form' action='#' method='post'>
               <div className='field'>
                 <label className='field__label' htmlFor='user-id'>
                   USER ID*

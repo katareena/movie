@@ -6,11 +6,7 @@ export default function SigninPage(): JSX.Element {
     <section className='search'>
       <div className='search__inner'>
         <h2 className='search__title'>FIND YOUR MOViE</h2>
-        <form
-          className='search__form'
-          method='get'
-          action='https://echo.htmlacademy.ru'
-        >
+        <form className='search__form' method='get' action='#'>
           <div className='search__feild'>
             <label className='visually-hidden' htmlFor='search'>
               search field
