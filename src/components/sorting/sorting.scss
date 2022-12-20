@@ -37,5 +37,14 @@
 
   & svg {
     margin-bottom: 1px;
+    transition: v.$transition;
+  }
+}
+
+.sorting__form-arrow--opened {
+  & svg {
+    transform: rotate(180deg);
+    margin-bottom: 3px;
+    transition: v.$transition;
   }
 }

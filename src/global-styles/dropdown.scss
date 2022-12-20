@@ -53,8 +53,9 @@
   padding: 7px 23px;
   color: v.$text-minor-07;
 
-  &.dropdown__option--active {
+  &.dropdown__option--active a {
     font-weight: 700;
+    color: v.$white;
   }
 }
 

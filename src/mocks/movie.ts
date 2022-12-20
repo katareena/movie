@@ -11,9 +11,9 @@ export const movies: MovieType[] = [
     id: 1,
     name: 'Pulp Fiction',
     posterImage: poster1,
-    rating: 8.9,
+    rating: 7.9,
     runTime: 158,
-    genre: 'Action & Adventure',
+    genre: 'Comedies',
     released: 2004,
   },
   {
@@ -22,7 +22,7 @@ export const movies: MovieType[] = [
     posterImage: poster2,
     rating: 7.5,
     runTime: 99,
-    genre: 'Drama, Biography, Music',
+    genre: 'Documentary',
     released: 2003,
   },
   {
@@ -31,7 +31,7 @@ export const movies: MovieType[] = [
     posterImage: poster3,
     rating: 8.7,
     runTime: 120,
-    genre: 'Oscar winning Movie',
+    genre: 'Comedies',
     released: 1994,
   },
   {
@@ -40,7 +40,7 @@ export const movies: MovieType[] = [
     posterImage: poster4,
     rating: 4.4,
     runTime: 69,
-    genre: 'Action & Adventure',
+    genre: 'Horror',
     released: 2004,
   },
   {
@@ -49,7 +49,7 @@ export const movies: MovieType[] = [
     posterImage: poster5,
     rating: 9.9,
     runTime: 79,
-    genre: 'Action & Adventure',
+    genre: 'Horror',
     released: 2003,
   },
   {
@@ -58,7 +58,7 @@ export const movies: MovieType[] = [
     posterImage: poster6,
     rating: 6.2,
     runTime: 89,
-    genre: 'Oscar winning Movie',
+    genre: 'Crime',
     released: 1994,
   },
 ];

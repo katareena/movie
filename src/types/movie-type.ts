@@ -9,3 +9,13 @@ export default PropTypes.shape({
   genre: PropTypes.string.isRequired,
   released: PropTypes.number.isRequired,
 }).isRequired;
+
+export type MovieType = {
+  id: number;
+  name: string;
+  posterImage: string;
+  rating: number;
+  runTime: number;
+  genre: string;
+  released: number;
+};
