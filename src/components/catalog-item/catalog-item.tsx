@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import PropTypes from 'prop-types';
 import './catalog-item.scss';
 import { Link } from 'react-router-dom';
 import Edit from '../edit/edit';
-import { MovieType } from '../../types/movie-type';
+import MovieType from '../../types/movie-type';
 
-type CatalogItemProps = {
-  movie: MovieType;
+const propTypes = {
+  movie: MovieType,
 };
 
-const CatalogItem = ({ movie }: CatalogItemProps): JSX.Element => {
+type CatalogItemProps = PropTypes.InferProps<typeof propTypes>;
+
+const CatalogItem: FunctionComponent<CatalogItemProps> = ({
+  movie,
+}): JSX.Element => {
   const { id, name, posterImage, genre, released } = movie;
 
   return (
@@ -34,5 +39,7 @@ const CatalogItem = ({ movie }: CatalogItemProps): JSX.Element => {
     </article>
   );
 };
+
+CatalogItem.propTypes = propTypes;
 
 export default CatalogItem;

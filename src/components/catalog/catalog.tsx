@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import PropTypes from 'prop-types';
 import './catalog.scss';
 import Genres from '../genres/genres';
 import Sorting from '../sorting/sorting';
 import CatalogItem from '../catalog-item/catalog-item';
-import { MovieType } from '../../types/movie-type';
+import MovieType from '../../types/movie-type';
 
-type CatalogProps = {
-  movies: MovieType[];
+const propTypes = {
+  movies: PropTypes.arrayOf(MovieType).isRequired,
 };
 
-const Catalog = ({ movies }: CatalogProps): JSX.Element => {
-  const numberMovies = movies.length;
+type CatalogProps = PropTypes.InferProps<typeof propTypes>;
+
+const Catalog: FunctionComponent<CatalogProps> = ({ movies }): JSX.Element => {
+  const numberMovies = movies?.length;
 
   return (
     <section className='catalog'>
@@ -26,12 +29,14 @@ const Catalog = ({ movies }: CatalogProps): JSX.Element => {
       </p>
 
       <div className='catalog__list'>
-        {movies.map((movie: MovieType) => (
+        {movies.map((movie) => (
           <CatalogItem movie={movie} key={movie.id} />
         ))}
       </div>
     </section>
   );
 };
+
+Catalog.propTypes = propTypes;
 
 export default Catalog;

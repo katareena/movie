@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../../components/header/header';
 import Search from '../../components/search/search';
 import Card from '../../components/card/card';
@@ -7,13 +8,17 @@ import Catalog from '../../components/catalog/catalog';
 import Footer from '../../components/footer/footer';
 import MovieModal from '../../components/movie-modal/movie-modal';
 import NotifyModal from '../../components/notify-modal/notify-modal';
-import { MovieType } from '../../types/movie-type';
+import MovieType from '../../types/movie-type';
 
-type MainPageProps = {
-  movies: MovieType[];
+const propTypes = {
+  movies: PropTypes.arrayOf(MovieType).isRequired,
 };
 
-const MainPage = ({ movies }: MainPageProps): JSX.Element => {
+type MainPageProps = PropTypes.InferProps<typeof propTypes>;
+
+const MainPage: FunctionComponent<MainPageProps> = ({
+  movies,
+}): JSX.Element => {
   return (
     <div className='page'>
       <div className='page__top'>
@@ -36,5 +41,7 @@ const MainPage = ({ movies }: MainPageProps): JSX.Element => {
     </div>
   );
 };
+
+MainPage.propTypes = propTypes;
 
 export default MainPage;
