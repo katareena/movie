@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import './catalog-item.scss';
 import { Link } from 'react-router-dom';
 import Edit from '../edit/edit';
-import MovieType from '../../types/movie-type';
+import MoviePropType from '../../types/movie-type';
 
 const propTypes = {
-  movie: MovieType,
+  movie: MoviePropType,
 };
 
 type CatalogItemProps = PropTypes.InferProps<typeof propTypes>;

@@ -67,4 +67,6 @@ const Sorting: FunctionComponent<SortingProps> = ({
   );
 };
 
+Sorting.propTypes = propTypes;
+
 export default Sorting;

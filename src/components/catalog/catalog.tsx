@@ -4,12 +4,12 @@ import './catalog.scss';
 import Genres from '../genres/genres';
 import Sorting from '../sorting/sorting';
 import CatalogItem from '../catalog-item/catalog-item';
-import MovieType from '../../types/movie-type';
+import MoviePropType from '../../types/movie-type';
 import { MovieGenres, SortItems } from '../../constants/constants';
 import { sortingMovies } from '../../utils/sorting-movies';
 
 const propTypes = {
-  movies: PropTypes.arrayOf(MovieType).isRequired,
+  movies: PropTypes.arrayOf(MoviePropType).isRequired,
 };
 
 type CatalogProps = PropTypes.InferProps<typeof propTypes>;

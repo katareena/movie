@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
-import MovieType from '../../types/movie-type';
+import MoviePropType from '../../types/movie-type';
 
 const propTypes = {
   children: PropTypes.node,
-  movies: PropTypes.arrayOf(MovieType),
+  movies: PropTypes.arrayOf(MoviePropType),
 };
 
 type ErrorBoundaryProps = PropTypes.InferProps<typeof propTypes>;

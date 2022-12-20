@@ -8,10 +8,10 @@ import Catalog from '../../components/catalog/catalog';
 import Footer from '../../components/footer/footer';
 import MovieModal from '../../components/movie-modal/movie-modal';
 import NotifyModal from '../../components/notify-modal/notify-modal';
-import MovieType from '../../types/movie-type';
+import MoviePropType from '../../types/movie-type';
 
 const propTypes = {
-  movies: PropTypes.arrayOf(MovieType).isRequired,
+  movies: PropTypes.arrayOf(MoviePropType).isRequired,
 };
 
 type MainPageProps = PropTypes.InferProps<typeof propTypes>;
