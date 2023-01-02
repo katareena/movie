@@ -10,7 +10,7 @@ const Header = (): JSX.Element => {
   return (
     <header className='header'>
       <div className='header__wrap'>
-        <h1 className='visually-hidden'>Movie</h1>
+        <h1 className='visually-hidden'>NetflixRoulette</h1>
         <Logo />
         <div style={{ display: 'flex' }}>
           <AddButton />

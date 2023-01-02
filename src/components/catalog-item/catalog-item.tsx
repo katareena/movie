@@ -28,9 +28,7 @@ const CatalogItem: FunctionComponent<CatalogItemProps> = ({
       <div className='catalog__card-info'>
         <div className='catalog__card-box'>
           <h3 className='catalog__card-title'>{name}</h3>
-          <div className='catalog__card-release'>
-            <span>{released}</span>
-          </div>
+          <span className='catalog__card-release'>{released}</span>
         </div>
         <p className='catalog__card-genres'>{genre}</p>
       </div>

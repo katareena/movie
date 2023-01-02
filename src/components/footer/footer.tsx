@@ -14,9 +14,7 @@ const Footer = (): JSX.Element => {
         'footer--sigin': pathname === AppRoute.Signin,
       })}
     >
-      <div className='footer__wrap'>
-        <Logo />
-      </div>
+      <Logo />
     </footer>
   );
 };

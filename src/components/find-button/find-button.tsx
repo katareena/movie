@@ -10,9 +10,7 @@ const FindButton = (): JSX.Element => {
         type='button'
         aria-label='open the search form'
       >
-        <span>
-          <FindSvgComponent />
-        </span>
+        <FindSvgComponent />
       </button>
     </div>
   );
