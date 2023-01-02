@@ -38,7 +38,7 @@ const Catalog: FunctionComponent<CatalogProps> = ({ movies }): JSX.Element => {
       </div>
 
       <p className='catalog__result-text'>
-        <span>{numberMovies}</span> movies found
+        <span>{numberMovies}</span> movies found <span> in </span>
       </p>
 
       <div className='catalog__list'>
