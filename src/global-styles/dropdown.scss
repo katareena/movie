@@ -26,6 +26,7 @@
 }
 
 .catalog__card .dropdown {
+  @include m.list-reset;
   padding: 30px 0 12px 0;
   background-color: v.$edit-bg;
   position: absolute;
