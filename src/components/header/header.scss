@@ -1,0 +1,20 @@
+@use '../../global-styles/variables.scss' as v;
+@use '../../global-styles/mixin.scss' as m;
+
+.header {
+  width: 100%;
+}
+
+.header__wrap {
+  @include m.padding;
+  @include m.wrap;
+  min-height: 84px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: v.$width-768) {
+    min-height: 50px;
+  }
+}

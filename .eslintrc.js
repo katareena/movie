@@ -19,7 +19,6 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'plugin:eslint-comments/recommended',
     'prettier',
-    'plugin:prettier/recommended',
   ],
   rules: {
     'no-unused-vars': 'off',
@@ -29,5 +28,11 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: ['.svg'],
+      },
+    ],
   },
 };

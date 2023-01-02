@@ -1,0 +1,44 @@
+@use '../../global-styles/variables.scss' as v;
+@use '../../global-styles/mixin.scss' as m;
+
+.edit {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.edit__button {
+  width: 36px;
+  height: 36px;
+  border-radius: 100px;
+  background-color: v.$edit-bg;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  transition: v.$transition;
+  z-index: 1;
+
+  & svg {
+    margin-bottom: 2px;
+    fill: v.$white;
+  }
+}
+
+// hover&focus
+.edit__button {
+  @media screen and (min-width: v.$width-768) {
+    cursor: pointer;
+    transition: v.$transition;
+
+    &:hover svg {
+      transition: v.$transition;
+      fill: v.$accent;
+    }
+  }
+}

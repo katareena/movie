@@ -1,0 +1,21 @@
+@use '../../global-styles/variables.scss' as v;
+@use '../../global-styles/mixin.scss' as m;
+
+.footer {
+  width: 100%;
+  background-color: v.$gray-medium;
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.footer--sigin {
+    background-color: transparent;
+    z-index: 2;
+
+    & img {
+      transform: scale(2);
+    }
+  }
+}

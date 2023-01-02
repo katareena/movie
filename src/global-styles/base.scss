@@ -1,4 +1,10 @@
 @use './fonts.scss';
+@use './page.scss';
+@use './modal.scss';
+@use './dropdown.scss';
+@use './form.scss';
+@use './field.scss';
+@use './close.scss';
 @use './mixin.scss';
 @use './variables.scss' as v;
 
@@ -49,6 +55,7 @@ body {
 
 img {
   max-width: 100%;
+  height: 100%;
 }
 
 a {

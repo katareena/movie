@@ -1,0 +1,79 @@
+@use '../../global-styles/variables.scss' as v;
+@use '../../global-styles/mixin.scss' as m;
+
+.card__inner {
+  @include m.padding;
+  @include m.wrap;
+  display: flex;
+  gap: 58px;
+  padding-bottom: 29px;
+  padding-top: 7px;
+}
+
+.card__poster {
+  width: 323px;
+  height: 486px;
+  background-color: gray;
+  flex-shrink: 0;
+}
+
+.card__box {
+  display: flex;
+  margin-bottom: 9px;
+}
+
+.card__title {
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 123%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-right: 25px;
+}
+
+.card__rating {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: solid 1px v.$white;
+  border-radius: 50%;
+}
+
+.card__rating span {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 120%;
+  color: v.$text-accent;
+}
+
+.card__genre {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 120%;
+  margin-bottom: 30px;
+}
+
+.card__characteristic {
+  margin-bottom: 30px;
+}
+
+.card__characteristic span {
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 120%;
+
+  color: v.$accent;
+
+  &:not(:last-child) {
+    margin-right: 50px;
+  }
+}
+
+.card__description {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 120%;
+}

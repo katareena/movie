@@ -1,0 +1,33 @@
+@use '../../global-styles/mixin.scss' as m;
+@use '../../global-styles/variables.scss' as v;
+
+.add {
+  min-width: 177px;
+  min-height: 46px;
+  background: v.$gray-bg;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: v.$width-768) {
+    &:hover,
+    &:focus {
+      box-shadow: v.$shadow-box3;
+    }
+  }
+}
+
+.add__button-mark {
+  @include m.plus;
+  margin-right: 4px;
+}
+
+.add__button-text {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: v.$accent;
+  text-transform: uppercase;
+}
