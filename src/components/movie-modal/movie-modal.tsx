@@ -1,16 +1,42 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
+import cn from 'classnames';
+import { useGlobalContext } from '../../hooks/context';
 import ArrowSvgComponent from '../../assets/images/arrow-dropdown-icon.svg';
 import CalendarSvgComponent from '../../assets/images/calendar-icon.svg';
 
 const MovieModal = (): JSX.Element => {
+  const {
+    isEdit,
+    isMovieModalOpen,
+    setIsMovieModalOpen,
+    setIsEdit,
+    setIsNotifyModalOpen,
+  } = useGlobalContext();
+
+  function handleClose() {
+    setIsMovieModalOpen(false);
+    setTimeout(() => setIsEdit(false), 2000);
+  }
+
+  function handleSubmit(evt: FormEvent<HTMLFormElement>) {
+    evt.preventDefault();
+    setIsMovieModalOpen(false);
+    setIsNotifyModalOpen(true);
+  }
+
   return (
-    <div className='modal'>
+    <div className={cn('modal', { 'modal--show': isMovieModalOpen })}>
       <section className='modal__wrap form form--movie'>
         <div className='form__title'>
-          <h2>ADD MOVIE</h2>
+          <h2>{isEdit ? 'EDIT MOVIE' : 'ADD MOVIE'}</h2>
         </div>
 
-        <form className='form__form' action='#' method='post'>
+        <form
+          className='form__form'
+          action='#'
+          method='post'
+          onSubmit={handleSubmit}
+        >
           <div className='form__grid'>
             <div className='field'>
               <label className='field__label' htmlFor='movie-title'>
@@ -197,7 +223,7 @@ const MovieModal = (): JSX.Element => {
               reset
             </button>
             <button className='form__submit' type='submit'>
-              log in
+              submit
             </button>
           </div>
         </form>
@@ -206,6 +232,7 @@ const MovieModal = (): JSX.Element => {
           className='close'
           type='button'
           aria-label='close the form'
+          onClick={handleClose}
         ></button>
       </section>
     </div>
