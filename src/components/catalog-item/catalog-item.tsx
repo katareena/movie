@@ -30,6 +30,7 @@ const CatalogItem: FunctionComponent<CatalogItemProps> = ({
   movie,
   onMouseOver,
   onMouseLeave,
+  onFocus,
   activeMovie,
 }): JSX.Element => {
   const { id, name, posterImage, genre, released } = movie;
@@ -37,7 +38,7 @@ const CatalogItem: FunctionComponent<CatalogItemProps> = ({
   return (
     <article
       className='catalog__card'
-      onFocus={onMouseOver}
+      onFocus={onFocus}
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
     >

@@ -1,7 +1,6 @@
 import React, { useState, FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 import './catalog.scss';
-// import { useGlobalContext } from '../../hooks/context';
 import Genres from '../genres/genres';
 import Sorting from '../sorting/sorting';
 import CatalogItem from '../catalog-item/catalog-item';
@@ -19,10 +18,6 @@ const Catalog: FunctionComponent<CatalogProps> = ({ movies }): JSX.Element => {
   const [activeMovie, setActiveMovie] = useState<undefined | number>(undefined);
   const [activeGenre, setActiveGenre] = useState(MovieGenres[0]);
   const [activeSortingValue, setActiveSortingValue] = useState(SortItems[0]);
-  // const { isDelete, isEdit } = useGlobalContext();
-
-  // console.log('isDelete', isDelete);
-  // console.log('isEdit', isEdit);
 
   const actualMovies = movies
     .filter((offer) =>
