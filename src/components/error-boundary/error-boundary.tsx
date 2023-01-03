@@ -1,34 +1,38 @@
-import React, { FunctionComponent } from 'react';
-import PropTypes from 'prop-types';
-import MoviePropType from '../../types/movie-type';
+import { Component, ErrorInfo, ReactNode } from 'react';
 
-const propTypes = {
-  children: PropTypes.node,
-  movies: PropTypes.arrayOf(MoviePropType),
-};
+interface Props {
+  children?: ReactNode;
+}
 
-type ErrorBoundaryProps = PropTypes.InferProps<typeof propTypes>;
+interface State {
+  hasError: boolean;
+}
 
-const ErrorBoundary: FunctionComponent<ErrorBoundaryProps> = ({
-  children,
-  movies,
-}): JSX.Element => {
-  const isEverythingOK: boolean | null | undefined =
-    movies && movies.length > 0;
+class ErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false,
+  };
 
-  return (
-    <>
-      {isEverythingOK ? (
-        children
-      ) : (
+  public static getDerivedStateFromError(): State {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Uncaught error:', error, errorInfo);
+  }
+
+  public render() {
+    if (this.state.hasError) {
+      return (
         <p className='page__error'>
           Oops, something went wrong... We are doing our best to fix the issue!
         </p>
-      )}
-    </>
-  );
-};
+      );
+    }
 
-ErrorBoundary.propTypes = propTypes;
+    return this.props.children;
+  }
+}
 
 export default ErrorBoundary;

@@ -29,7 +29,7 @@ const MainPage: FunctionComponent<MainPageProps> = ({
 
       <main className='page__medium'>
         <div className='page__medium-wrap'>
-          <ErrorBoundary movies={movies}>
+          <ErrorBoundary>
             <Catalog movies={movies} />
           </ErrorBoundary>
         </div>
