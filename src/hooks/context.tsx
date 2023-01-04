@@ -13,16 +13,6 @@ type ContextProps = {
   setIsNotifyModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isMovieModalOpen: boolean;
   setIsMovieModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  // searchTerm: string,
-  // setSearchTerm: React.Dispatch<React.SetStateAction<string>>,
-  // loading: boolean,
-  // tvseries: TvseriesItem[] | [],
-  // backgrounds: Background[] | [],
-  // resultTitle: string,
-  // setResultTitle: React.Dispatch<React.SetStateAction<string>>,
-  // isSearchActive: boolean,
-  // setIsSearchActive: React.Dispatch<React.SetStateAction<boolean>>,
-  // searchResult: TvseriesItem[] | [],
 };
 
 const AppContext = createContext<ContextProps | null>(null);
