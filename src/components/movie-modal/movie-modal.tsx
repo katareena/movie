@@ -1,17 +1,38 @@
-import React, { FormEvent } from 'react';
+import React, { FormEvent, FunctionComponent, useState } from 'react';
+import PropTypes from 'prop-types';
+import MoviePropType from '../../types/movie-type';
 import cn from 'classnames';
 import { useGlobalContext } from '../../hooks/context';
+import { defaultFormValue } from '../../constants/constants';
 import ArrowSvgComponent from '../../assets/images/arrow-dropdown-icon.svg';
 import CalendarSvgComponent from '../../assets/images/calendar-icon.svg';
 
-const MovieModal = (): JSX.Element => {
+const propTypes = {
+  movies: PropTypes.arrayOf(MoviePropType).isRequired,
+};
+
+type MovieModalProps = PropTypes.InferProps<typeof propTypes>;
+
+const MovieModal: FunctionComponent<MovieModalProps> = ({
+  movies,
+}): JSX.Element => {
+  const [isGenreDropdownOpen, setIsGenreDropdownOpen] =
+    useState<boolean>(false);
+  const [isDateDropdownOpen, setIsDateDropdownOpen] = useState<boolean>(false);
   const {
     isEdit,
     isMovieModalOpen,
     setIsMovieModalOpen,
     setIsEdit,
     setIsNotifyModalOpen,
+    activeMovie,
   } = useGlobalContext();
+
+  const changeableMovie = isEdit
+    ? movies.filter((movie) => movie.id === activeMovie)[0]
+    : defaultFormValue;
+  const { name, rating, runTime, genre, released, posterImage } =
+    changeableMovie;
 
   function handleClose() {
     setIsMovieModalOpen(false);
@@ -20,6 +41,9 @@ const MovieModal = (): JSX.Element => {
 
   function handleSubmit(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault();
+  }
+
+  function handleClick() {
     setIsMovieModalOpen(false);
     setIsNotifyModalOpen(true);
   }
@@ -49,6 +73,7 @@ const MovieModal = (): JSX.Element => {
                 name='movie-title'
                 autoComplete='off'
                 placeholder='Title'
+                defaultValue={name}
               />
             </div>
 
@@ -63,12 +88,20 @@ const MovieModal = (): JSX.Element => {
                 name='movie-release'
                 autoComplete='off'
                 placeholder='Select date'
+                defaultValue={released}
               />
-              <button className='field__btn'>
+              <button
+                className='field__btn'
+                onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
+              >
                 <CalendarSvgComponent />
               </button>
 
-              <div className='dropdown dropdown--opened'>
+              <div
+                className={cn('dropdown', {
+                  'dropdown--opened': isDateDropdownOpen,
+                })}
+              >
                 <ul className='dropdown__options'>
                   <li className='dropdown__option dropdown__option--active'>
                     Edit
@@ -89,6 +122,7 @@ const MovieModal = (): JSX.Element => {
                 name='movie-url'
                 autoComplete='off'
                 placeholder='https://'
+                defaultValue={posterImage}
               />
             </div>
 
@@ -104,6 +138,7 @@ const MovieModal = (): JSX.Element => {
                 autoComplete='off'
                 placeholder='7.8'
                 pattern='[^[0-9]]'
+                defaultValue={rating}
               />
             </div>
 
@@ -117,15 +152,23 @@ const MovieModal = (): JSX.Element => {
                 type='text'
                 name='movie-genre'
                 placeholder='Select genre'
+                defaultValue={genre}
               />
-              <button className='field__btn'>
+              <button
+                className='field__btn'
+                onClick={() => setIsGenreDropdownOpen(!isGenreDropdownOpen)}
+              >
                 <ArrowSvgComponent />
               </button>
-              <p className='field__text'>
+              <p className='field__text visually-hidden'>
                 Select at least one genre to proceed
               </p>
 
-              <div className='dropdown'>
+              <div
+                className={cn('dropdown', {
+                  'dropdown--opened': isGenreDropdownOpen,
+                })}
+              >
                 <ul className='dropdown__options'>
                   <li className='field'>
                     <input
@@ -201,6 +244,7 @@ const MovieModal = (): JSX.Element => {
                 type='number'
                 name='movie-runtime'
                 placeholder='Minutes'
+                defaultValue={runTime}
               />
             </div>
           </div>
@@ -222,7 +266,11 @@ const MovieModal = (): JSX.Element => {
             <button className='form__reset' type='reset'>
               reset
             </button>
-            <button className='form__submit' type='submit'>
+            <button
+              className='form__submit'
+              type='submit'
+              onClick={handleClick}
+            >
               submit
             </button>
           </div>

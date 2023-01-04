@@ -5,6 +5,8 @@ type AppProviderProps = {
 };
 
 type ContextProps = {
+  activeMovie: undefined | number;
+  setActiveMovie: React.Dispatch<React.SetStateAction<undefined | number>>;
   isDelete: boolean;
   setIsDelete: React.Dispatch<React.SetStateAction<boolean>>;
   isEdit: boolean;
@@ -18,6 +20,7 @@ type ContextProps = {
 const AppContext = createContext<ContextProps | null>(null);
 
 const AppProvider = ({ children }: AppProviderProps) => {
+  const [activeMovie, setActiveMovie] = useState<undefined | number>(undefined);
   const [isDelete, setIsDelete] = useState<boolean>(false);
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isNotifyModalOpen, setIsNotifyModalOpen] = useState<boolean>(false);
@@ -34,6 +37,8 @@ const AppProvider = ({ children }: AppProviderProps) => {
         setIsNotifyModalOpen,
         isMovieModalOpen,
         setIsMovieModalOpen,
+        activeMovie,
+        setActiveMovie,
       }}
     >
       {children}

@@ -3,9 +3,10 @@ import './add-button.scss';
 import { useGlobalContext } from '../../hooks/context';
 
 const AddButton = (): JSX.Element => {
-  const { setIsMovieModalOpen } = useGlobalContext();
+  const { setActiveMovie, setIsMovieModalOpen } = useGlobalContext();
 
   function handleClick() {
+    setActiveMovie(undefined);
     setIsMovieModalOpen(true);
   }
 

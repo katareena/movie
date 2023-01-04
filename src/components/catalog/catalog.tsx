@@ -15,7 +15,6 @@ const propTypes = {
 type CatalogProps = PropTypes.InferProps<typeof propTypes>;
 
 const Catalog: FunctionComponent<CatalogProps> = ({ movies }): JSX.Element => {
-  const [activeMovie, setActiveMovie] = useState<undefined | number>(undefined);
   const [activeGenre, setActiveGenre] = useState(MovieGenres[0]);
   const [activeSortingValue, setActiveSortingValue] = useState(SortItems[0]);
 
@@ -44,14 +43,7 @@ const Catalog: FunctionComponent<CatalogProps> = ({ movies }): JSX.Element => {
 
       <div className='catalog__list'>
         {actualMovies.map((movie) => (
-          <CatalogItem
-            movie={movie}
-            key={movie.id}
-            onMouseOver={() => setActiveMovie(movie.id)}
-            onFocus={() => setActiveMovie(movie.id)}
-            onMouseLeave={() => setActiveMovie(undefined)}
-            activeMovie={activeMovie}
-          />
+          <CatalogItem movie={movie} key={movie.id} />
         ))}
       </div>
     </section>

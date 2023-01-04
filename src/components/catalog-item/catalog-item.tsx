@@ -1,53 +1,27 @@
-import React, {
-  FunctionComponent,
-  MouseEventHandler,
-  FocusEventHandler,
-} from 'react';
+import React, { FunctionComponent } from 'react';
 import './catalog-item.scss';
+import { useGlobalContext } from '../../hooks/context';
 import { Link } from 'react-router-dom';
 import Edit from '../edit/edit';
-// import PropTypes from 'prop-types';
-// import MoviePropType from '../../types/movie-type';
-import { MovieType } from '../../types/movie-type';
+import PropTypes from 'prop-types';
+import MoviePropType from '../../types/movie-type';
 
-// const propTypes = {
-//   movie: MoviePropType,
-//   onMouseOver: PropTypes.func,
-//   onMouseLeave: PropTypes.func,
-//   onFocus: PropTypes.func,
-//   // activeMovie: PropTypes.oneOfType([
-//   //   PropTypes.undefined,
-//   //   PropTypes.number,
-//   // ])
-//   activeMovie: number,
-// }
-
-type CatalogItemProps = {
-  movie: MovieType;
-  onMouseOver: MouseEventHandler<HTMLElement>;
-  onMouseLeave: MouseEventHandler<HTMLElement>;
-  onFocus: FocusEventHandler<HTMLElement>;
-  activeMovie: number | undefined;
+const propTypes = {
+  movie: MoviePropType,
 };
 
-// type CatalogItemProps = PropTypes.InferProps<typeof propTypes>;
+type CatalogItemProps = PropTypes.InferProps<typeof propTypes>;
 
 const CatalogItem: FunctionComponent<CatalogItemProps> = ({
   movie,
-  onMouseOver,
-  onMouseLeave,
-  onFocus,
-  activeMovie,
 }): JSX.Element => {
   const { id, name, posterImage, genre, released } = movie;
+  const { activeMovie, setActiveMovie } = useGlobalContext();
+
+  console.log(activeMovie);
 
   return (
-    <article
-      className='catalog__card'
-      onFocus={onFocus}
-      onMouseOver={onMouseOver}
-      onMouseLeave={onMouseLeave}
-    >
+    <article className='catalog__card' onMouseOver={() => setActiveMovie(id)}>
       <Link
         className='catalog__card-poster'
         to={`/movies/${id}`}
@@ -68,6 +42,6 @@ const CatalogItem: FunctionComponent<CatalogItemProps> = ({
   );
 };
 
-// CatalogItem.propTypes = propTypes;
+CatalogItem.propTypes = propTypes;
 
 export default CatalogItem;

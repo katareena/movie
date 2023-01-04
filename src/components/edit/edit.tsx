@@ -12,11 +12,13 @@ const Edit = (): JSX.Element => {
   function handleEditClick() {
     setIsEdit(true);
     setIsMovieModalOpen(true);
+    setIsOpenedEdit(false);
   }
 
   function handleDeleteClick() {
     setIsDelete(true);
     setIsNotifyModalOpen(true);
+    setIsOpenedEdit(false);
   }
 
   return (

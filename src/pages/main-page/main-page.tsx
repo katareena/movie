@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
+import { useGlobalContext } from '../../hooks/context';
 import Header from '../../components/header/header';
 import Search from '../../components/search/search';
 import Card from '../../components/card/card';
@@ -19,25 +20,28 @@ type MainPageProps = PropTypes.InferProps<typeof propTypes>;
 const MainPage: FunctionComponent<MainPageProps> = ({
   movies,
 }): JSX.Element => {
+  const { isNotifyModalOpen, isMovieModalOpen } = useGlobalContext();
+
   return (
     <div className='page'>
-      <div className='page__top'>
-        <Header />
-        <Search />
-        <Card />
-      </div>
-
-      <main className='page__medium'>
-        <div className='page__medium-wrap'>
-          <ErrorBoundary>
-            <Catalog movies={movies} />
-          </ErrorBoundary>
+      <ErrorBoundary>
+        <div className='page__top'>
+          <Header />
+          <Search />
+          <Card />
         </div>
-      </main>
 
-      <Footer />
-      <MovieModal />
-      <NotifyModal />
+        <main className='page__medium'>
+          <div className='page__medium-wrap'>
+            <Catalog movies={movies} />
+          </div>
+        </main>
+
+        <Footer />
+
+        {isNotifyModalOpen && <NotifyModal />}
+        {isMovieModalOpen && <MovieModal movies={movies} />}
+      </ErrorBoundary>
     </div>
   );
 };

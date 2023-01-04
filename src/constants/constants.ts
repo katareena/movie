@@ -12,3 +12,13 @@ export const MovieGenres = [
 ];
 
 export const SortItems = ['Release Date', 'Rating', 'Runtime'];
+
+export const defaultFormValue = {
+  id: '',
+  name: '',
+  rating: '',
+  runTime: '',
+  genre: '',
+  released: '',
+  posterImage: '',
+};
