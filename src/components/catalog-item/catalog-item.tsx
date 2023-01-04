@@ -7,14 +7,20 @@ import './catalog-item.scss';
 import { Link } from 'react-router-dom';
 import Edit from '../edit/edit';
 // import PropTypes from 'prop-types';
-// import MovieModal from '../../components/movie-modal/movie-modal';
-// import NotifyModal from '../../components/notify-modal/notify-modal';
 // import MoviePropType from '../../types/movie-type';
 import { MovieType } from '../../types/movie-type';
 
 // const propTypes = {
 //   movie: MoviePropType,
-// };
+//   onMouseOver: PropTypes.func,
+//   onMouseLeave: PropTypes.func,
+//   onFocus: PropTypes.func,
+//   // activeMovie: PropTypes.oneOfType([
+//   //   PropTypes.undefined,
+//   //   PropTypes.number,
+//   // ])
+//   activeMovie: number,
+// }
 
 type CatalogItemProps = {
   movie: MovieType;
