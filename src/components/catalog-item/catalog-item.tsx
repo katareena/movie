@@ -16,16 +16,20 @@ const CatalogItem: FunctionComponent<CatalogItemProps> = ({
   movie,
 }): JSX.Element => {
   const { id, name, posterImage, genre, released } = movie;
-  const { activeMovie, setActiveMovie } = useGlobalContext();
+  const { activeMovie, setActiveMovie, setIsCardOpen } = useGlobalContext();
 
-  console.log(activeMovie);
+  function handlerClick(evt: React.MouseEvent<HTMLElement>) {
+    evt.preventDefault();
+    setIsCardOpen(true);
+  }
 
   return (
-    <article className='catalog__card' onMouseOver={() => setActiveMovie(id)}>
+    <article className='catalog__card' onClick={() => setActiveMovie(id)}>
       <Link
         className='catalog__card-poster'
-        to={`/movies/${id}`}
+        to={`movies/${id}`}
         aria-label='go to the movie card'
+        onClick={handlerClick}
       >
         <img src={posterImage} alt='poster of movie' />
       </Link>

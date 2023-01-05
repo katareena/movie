@@ -15,6 +15,8 @@ type ContextProps = {
   setIsNotifyModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isMovieModalOpen: boolean;
   setIsMovieModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isCardOpen: boolean;
+  setIsCardOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const AppContext = createContext<ContextProps | null>(null);
@@ -25,6 +27,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [isNotifyModalOpen, setIsNotifyModalOpen] = useState<boolean>(false);
   const [isMovieModalOpen, setIsMovieModalOpen] = useState<boolean>(false);
+  const [isCardOpen, setIsCardOpen] = useState<boolean>(false);
 
   return (
     <AppContext.Provider
@@ -39,6 +42,8 @@ const AppProvider = ({ children }: AppProviderProps) => {
         setIsMovieModalOpen,
         activeMovie,
         setActiveMovie,
+        isCardOpen,
+        setIsCardOpen,
       }}
     >
       {children}

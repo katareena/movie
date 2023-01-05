@@ -2,14 +2,14 @@ import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
 import { useGlobalContext } from '../../hooks/context';
 import Header from '../../components/header/header';
-import Search from '../../components/search/search';
-import Card from '../../components/card/card';
 import ErrorBoundary from '../../components/error-boundary/error-boundary';
 import Catalog from '../../components/catalog/catalog';
 import Footer from '../../components/footer/footer';
 import MovieModal from '../../components/movie-modal/movie-modal';
 import NotifyModal from '../../components/notify-modal/notify-modal';
 import MoviePropType from '../../types/movie-type';
+import Search from '../../components/search/search';
+import Card from '../../components/card/card';
 
 const propTypes = {
   movies: PropTypes.arrayOf(MoviePropType).isRequired,
@@ -20,14 +20,16 @@ type MainPageProps = PropTypes.InferProps<typeof propTypes>;
 const MainPage: FunctionComponent<MainPageProps> = ({
   movies,
 }): JSX.Element => {
-  const { isNotifyModalOpen, isMovieModalOpen } = useGlobalContext();
+  const { isNotifyModalOpen, isMovieModalOpen, isCardOpen, activeMovie } =
+    useGlobalContext();
+  const movie = movies.filter((movie) => movie.id === activeMovie)[0];
 
   return (
     <div className='page'>
       <div className='page__top'>
         <Header />
-        <Search />
-        <Card />
+
+        {!isCardOpen ? <Search /> : <Card movie={movie} />}
       </div>
 
       <main className='page__medium'>

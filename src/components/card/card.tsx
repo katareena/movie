@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import PropTypes from 'prop-types';
+import MoviePropType from '../../types/movie-type';
 import './card.scss';
 
-const Card = (): JSX.Element => {
+const propTypes = {
+  movie: MoviePropType,
+};
+
+type CardProps = PropTypes.InferProps<typeof propTypes>;
+
+const Card: FunctionComponent<CardProps> = ({ movie }): JSX.Element => {
+  const { name, rating, runTime, genre, released, posterImage } = movie;
+
   return (
-    <section className='card visually-hidden'>
+    <section className='card'>
       <div className='card__inner'>
-        <div className='card__poster'></div>
+        <img className='card__poster' src={posterImage} alt='poster of movie' />
         <div className='card__info'>
           <div className='card__box'>
-            <h2 className='card__title'>Pulp Fiction</h2>
-            <div className='card__rating'>
-              <span>8.9</span>
-            </div>
+            <h2 className='card__title'>{name}</h2>
+            <span className='card__rating'>{rating}</span>
           </div>
 
-          <p className='card__genre'>Action & Adventure</p>
+          <p className='card__genre'>{genre}</p>
 
           <p className='card__characteristic'>
-            <span>1994</span>
-            <span>2h 34min</span>
+            <span>{released}</span>
+            <span>{runTime}min</span>
           </p>
           <p className='card__description'>
             Jules Winnfield (Samuel L. Jackson) and Vincent Vega (John Travolta)
@@ -36,5 +44,7 @@ const Card = (): JSX.Element => {
     </section>
   );
 };
+
+Card.propTypes = propTypes;
 
 export default Card;

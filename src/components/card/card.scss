@@ -11,6 +11,7 @@
 }
 
 .card__poster {
+  display: block;
   width: 323px;
   height: 486px;
   background-color: gray;
@@ -40,9 +41,7 @@
   flex-shrink: 0;
   border: solid 1px v.$white;
   border-radius: 50%;
-}
 
-.card__rating span {
   font-weight: 300;
   font-size: 20px;
   line-height: 120%;
