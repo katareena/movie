@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './footer.scss';
 import Logo from '../logo/logo';
@@ -7,6 +7,10 @@ import cn from 'classnames';
 
 const Footer = (): JSX.Element => {
   const { pathname } = useLocation();
+
+  useEffect(() => {
+    pathname === AppRoute.Root && window.scrollTo(0, 0);
+  });
 
   return (
     <footer

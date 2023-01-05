@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './search.scss';
 
 const Search = (): JSX.Element => {
+  useEffect(() => {
+    function handleSearch(evt: KeyboardEvent) {
+      if (evt.code === 'Enter') {
+        console.log('click on Search Button');
+      }
+    }
+
+    document.addEventListener('keydown', handleSearch);
+
+    return () => document.removeEventListener('keydown', handleSearch);
+  }, []);
+
   return (
     <section className='search'>
       <div className='search__inner'>

@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import PropTypes from 'prop-types';
 import './catalog-item.scss';
+import { useGlobalContext } from '../../hooks/context';
 import { Link } from 'react-router-dom';
 import Edit from '../edit/edit';
-import MovieType from '../../types/movie-type';
+import PropTypes from 'prop-types';
+import MoviePropType from '../../types/movie-type';
 
 const propTypes = {
-  movie: MovieType,
+  movie: MoviePropType,
 };
 
 type CatalogItemProps = PropTypes.InferProps<typeof propTypes>;
@@ -15,9 +16,12 @@ const CatalogItem: FunctionComponent<CatalogItemProps> = ({
   movie,
 }): JSX.Element => {
   const { id, name, posterImage, genre, released } = movie;
+  const { activeMovie, setActiveMovie } = useGlobalContext();
+
+  console.log(activeMovie);
 
   return (
-    <article className='catalog__card'>
+    <article className='catalog__card' onMouseOver={() => setActiveMovie(id)}>
       <Link
         className='catalog__card-poster'
         to={`/movies/${id}`}
@@ -33,7 +37,7 @@ const CatalogItem: FunctionComponent<CatalogItemProps> = ({
         <p className='catalog__card-genres'>{genre}</p>
       </div>
 
-      <Edit />
+      {activeMovie === id && <Edit />}
     </article>
   );
 };

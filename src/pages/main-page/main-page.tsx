@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
+import { useGlobalContext } from '../../hooks/context';
 import Header from '../../components/header/header';
 import Search from '../../components/search/search';
 import Card from '../../components/card/card';
@@ -8,10 +9,10 @@ import Catalog from '../../components/catalog/catalog';
 import Footer from '../../components/footer/footer';
 import MovieModal from '../../components/movie-modal/movie-modal';
 import NotifyModal from '../../components/notify-modal/notify-modal';
-import MovieType from '../../types/movie-type';
+import MoviePropType from '../../types/movie-type';
 
 const propTypes = {
-  movies: PropTypes.arrayOf(MovieType).isRequired,
+  movies: PropTypes.arrayOf(MoviePropType).isRequired,
 };
 
 type MainPageProps = PropTypes.InferProps<typeof propTypes>;
@@ -19,6 +20,8 @@ type MainPageProps = PropTypes.InferProps<typeof propTypes>;
 const MainPage: FunctionComponent<MainPageProps> = ({
   movies,
 }): JSX.Element => {
+  const { isNotifyModalOpen, isMovieModalOpen } = useGlobalContext();
+
   return (
     <div className='page'>
       <div className='page__top'>
@@ -29,15 +32,16 @@ const MainPage: FunctionComponent<MainPageProps> = ({
 
       <main className='page__medium'>
         <div className='page__medium-wrap'>
-          <ErrorBoundary movies={movies}>
+          <ErrorBoundary>
             <Catalog movies={movies} />
           </ErrorBoundary>
         </div>
       </main>
 
       <Footer />
-      <MovieModal />
-      <NotifyModal />
+
+      {isNotifyModalOpen && <NotifyModal />}
+      {isMovieModalOpen && <MovieModal movies={movies} />}
     </div>
   );
 };
