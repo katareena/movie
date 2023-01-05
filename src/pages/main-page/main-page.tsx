@@ -24,24 +24,24 @@ const MainPage: FunctionComponent<MainPageProps> = ({
 
   return (
     <div className='page'>
-      <ErrorBoundary>
-        <div className='page__top'>
-          <Header />
-          <Search />
-          <Card />
-        </div>
+      <div className='page__top'>
+        <Header />
+        <Search />
+        <Card />
+      </div>
 
-        <main className='page__medium'>
-          <div className='page__medium-wrap'>
+      <main className='page__medium'>
+        <div className='page__medium-wrap'>
+          <ErrorBoundary>
             <Catalog movies={movies} />
-          </div>
-        </main>
+          </ErrorBoundary>
+        </div>
+      </main>
 
-        <Footer />
+      <Footer />
 
-        {isNotifyModalOpen && <NotifyModal />}
-        {isMovieModalOpen && <MovieModal movies={movies} />}
-      </ErrorBoundary>
+      {isNotifyModalOpen && <NotifyModal />}
+      {isMovieModalOpen && <MovieModal movies={movies} />}
     </div>
   );
 };
