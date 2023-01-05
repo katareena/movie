@@ -19,6 +19,7 @@ module.exports = {
     // 'plugin:jsx-a11y/recommended',
     'plugin:eslint-comments/recommended',
     'prettier',
+    "plugin:react-hooks/recommended",
   ],
   rules: {
     'no-unused-vars': 'off',
