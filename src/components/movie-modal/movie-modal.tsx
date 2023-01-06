@@ -1,20 +1,24 @@
 import React, { FormEvent, FunctionComponent, useState } from 'react';
 import PropTypes from 'prop-types';
-import MoviePropType from '../../types/movie-type';
+import { MoviePropTypes, DefaultMoviePropTypes } from '../../types/movie-type';
 import cn from 'classnames';
 import { useGlobalContext } from '../../hooks/context';
-import { defaultFormValue } from '../../constants/constants';
 import ArrowSvgComponent from '../../assets/images/arrow-dropdown-icon.svg';
 import CalendarSvgComponent from '../../assets/images/calendar-icon.svg';
 
 const propTypes = {
-  movies: PropTypes.arrayOf(MoviePropType).isRequired,
+  movie: PropTypes.oneOfType([
+    // PropTypes.string,
+    // PropTypes.number,
+    MoviePropTypes,
+    DefaultMoviePropTypes,
+  ]),
 };
 
 type MovieModalProps = PropTypes.InferProps<typeof propTypes>;
 
 const MovieModal: FunctionComponent<MovieModalProps> = ({
-  movies,
+  movie,
 }): JSX.Element => {
   const [isGenreDropdownOpen, setIsGenreDropdownOpen] =
     useState<boolean>(false);
@@ -25,14 +29,9 @@ const MovieModal: FunctionComponent<MovieModalProps> = ({
     setIsMovieModalOpen,
     setIsEdit,
     setIsNotifyModalOpen,
-    activeMovie,
   } = useGlobalContext();
 
-  const changeableMovie = isEdit
-    ? movies.filter((movie) => movie.id === activeMovie)[0]
-    : defaultFormValue;
-  const { name, rating, runTime, genre, released, posterImage } =
-    changeableMovie;
+  const { name, rating, runTime, genre, released, posterImage } = movie;
 
   function handleClose() {
     setIsMovieModalOpen(false);

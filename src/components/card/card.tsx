@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import PropTypes from 'prop-types';
-import MoviePropType from '../../types/movie-type';
+import { MoviePropTypes } from '../../types/movie-type';
 import './card.scss';
 
 const propTypes = {
-  movie: MoviePropType,
+  movie: MoviePropTypes,
 };
 
 type CardProps = PropTypes.InferProps<typeof propTypes>;
