@@ -7,8 +7,9 @@
 
 .search__inner {
   @include m.padding;
-  padding: 17px 120px 151px 120px;
+  padding: 90px 120px 151px 120px;
   @include m.wrap;
+  min-height: 522px;
 }
 
 .search__title {
